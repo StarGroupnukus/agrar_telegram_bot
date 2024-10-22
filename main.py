@@ -71,7 +71,7 @@ async def load_students_to_mongodb():
         async with aiohttp.ClientSession() as session:
             current_page = 1
             while True:
-                async with session.get(f'{BACKEND_API_URL}/api/main/students?page={current_page}') as response:
+                async with session.get(f'{BACKEND_API_URL}/api/main/students?page={current_page}&per_page=300') as response:
                     if response.status == 200:
                         data = await response.json()
                         try:
